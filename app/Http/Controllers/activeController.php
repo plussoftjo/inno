@@ -8,6 +8,7 @@ use App\load;
 use App\active;
 use App\tb;
 use App\c_image;
+use App\w_image;
 class activeController extends Controller
 {
     public function store(Request $req)
@@ -39,12 +40,12 @@ class activeController extends Controller
     }
 
     public function c_i(Request $req) {
-        $c_image = tb::get();
-        foreach ($c_image as $k) {
-            c_image::create([
-                'title' => $k->a,
-                'text' => $k->b,
-                'number' => $k->c,
+        $w_image = tb::get();
+        foreach ($w_image as $k) {
+            w_image::create([
+                'title' => $k->title,
+                'text' => $k->text,
+                'number' => $k->number,
             ]);
         }
     }
