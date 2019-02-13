@@ -16,7 +16,7 @@ class mainController extends Controller
 
     public function show($id) {
 
-    	$items = load::where('id',$id)->first();
+    	$items = load::where('id',$id)->firstOrFail();
     	$other = active::where('active',$items->active)->first();
     	$a = explode(',', $other->couns);
     	$b = explode(',', $other->warn);
@@ -40,9 +40,21 @@ class mainController extends Controller
     	$items = load::where('code',$barcode)->firstOrFail();
     	$other = active::where('active',$items->active)->first();
     	$a = explode(',', $other->couns);
-    	$b = explode(',', $other->warn);
-    	$c = explode(',', $other->count);
-    	return response()->json(['items' => $items , 'a'=>$a,'b' => $b,'c' => $c]);
+        $b = explode(',', $other->warn);
+        $c = explode(',', $other->count);
+        $a_array = array();
+        $b_array = array();
+        $c_array = array();
+        foreach ($a as $ak) {
+            $a_array[] = array('number' => $ak, 'item' => c_image::where('number',$ak)->first());
+        }
+        foreach ($b as $bk) {
+            $b_array[] = array('number' => $bk, 'item' => w_image::where('number',$bk)->first());
+        }
+         foreach ($c as $ck) {
+            $c_array[] = array('number' => $ck, 'item' => w_image::where('number',$ck)->first());
+        }
+        return response()->json(['items' => $items , 'a'=> $a_array,'b' => $b_array,'c' => $c_array]);
     }
 
     public function show_image(Request $req)
