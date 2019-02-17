@@ -37,4 +37,11 @@ Route::group(['middleware' => 'auth:api'], function(){
 
 	//// show Image 
 	Route::post('/image/show','API\mainController@show_image');
+
+
+	/// store lastSearch
+	Route::get('/lastsearch/store/{id}','API\lastController@store');
+	Route::get('/lastsearch/get','API\lastController@get');
+
+
 });
