@@ -29,7 +29,7 @@ class usersController extends Controller
         $input = $req->all();
         $input['password'] = bcrypt($input['password']);
 
-        $user = User::create(['name' => $input['name'],'email'=> $input['email'],'password' => $input['password'],'count' => 0,'type' => 0]);
+        $user = User::create(['name' => $input['name'],'email'=> $input['email'],'password' => $input['password'],'count' => 0,'type' => 0,'active_code' => 0,'phone' => '0']);
         return response()->json('ok',200);
     }
 
