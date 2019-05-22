@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\load;
+use App\active;
 class searchController extends Controller
 {
     public function search_byName(Request $request)
@@ -27,5 +28,9 @@ class searchController extends Controller
     	{
     		return response()->json(load::where('drugStore','like','%'.$request->search.'%')->take(10)->get());
     	}
+    }
+
+    public function searchActive(Request $req) {
+        return response()->json(active::where('active','like','%'.$req->search.'%')->take(10)->get());
     }
 }

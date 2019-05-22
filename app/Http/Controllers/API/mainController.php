@@ -68,4 +68,25 @@ class mainController extends Controller
             return response()->json($w_image);
         }
     }
+
+    public function activeShow($id)
+    {
+        $other = active::where('id',$id)->first();
+        $a = explode(',', $other->couns);
+        $b = explode(',', $other->warn);
+        $c = explode(',', $other->count);
+        $a_array = array();
+        $b_array = array();
+        $c_array = array();
+        foreach ($a as $ak) {
+            $a_array[] = array('number' => $ak, 'item' => c_image::where('number',$ak)->first());
+        }
+        foreach ($b as $bk) {
+            $b_array[] = array('number' => $bk, 'item' => w_image::where('number',$bk)->first());
+        }
+         foreach ($c as $ck) {
+            $c_array[] = array('number' => $ck, 'item' => w_image::where('number',$ck)->first());
+        }
+        return response()->json(['active' => $other , 'a'=> $a_array,'b' => $b_array,'c' => $c_array]);
+    }
 }

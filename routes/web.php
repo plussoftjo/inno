@@ -28,3 +28,5 @@ Route::post('/login','usersController@login')->name('login');
 Route::get('/users/getAuth','usersController@getAuth');
 
 Route::get('/c_i','activeController@c_i');
+
+Route::get('/deleteMost','activeController@deleteMost');
