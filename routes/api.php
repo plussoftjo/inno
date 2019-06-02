@@ -16,7 +16,9 @@ Route::get('/load/show/{id}','loadController@show');
 Route::get('/users/index','usersController@index');
 Route::post('/users/store','usersController@store');
 Route::post('/users/login','usersController@login');
-
+Route::post('images/index','API\imagesController@index');
+Route::post('images/store','API\imagesController@store');
+Route::post('images/newImage','API\imagesController@store');
 
 ////////////////
 ////// App Controller 
@@ -46,6 +48,8 @@ Route::group(['middleware' => 'auth:api'], function(){
 	// Search Active
 	Route::post('searchActive','API\searchController@searchActive');
 	Route::get('active/{id}','API\mainController@activeShow');
+
+
 
 
 });

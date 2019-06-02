@@ -30,3 +30,5 @@ Route::get('/users/getAuth','usersController@getAuth');
 Route::get('/c_i','activeController@c_i');
 
 Route::get('/deleteMost','activeController@deleteMost');
+
+Route::get('/image','API\imagesController@index');

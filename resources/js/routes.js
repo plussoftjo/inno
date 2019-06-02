@@ -6,6 +6,7 @@ import edit from './components/app/edit'
 import users from './components/app/users'
 import newUser from './components/app/newUser'
 import login from './components/app/login'
+import images from './components/app/images'
 export const routes = [
 	{
 		path:'/',
@@ -46,5 +47,10 @@ export const routes = [
 		path:'/login',
 		name:'login',
 		component:login
+	},
+	{
+		path:'/images',
+		name:'images',
+		component:images
 	}
 ]

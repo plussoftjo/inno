@@ -8,7 +8,8 @@
 				  <li class="list-group-item" @click="$router.push({name:'Submit'})">Submit Active ingredient</li>
 				  <li class="list-group-item" @click="$router.push({name:'New'})">New Entry\Barcode</li>
 				  <li class="list-group-item" @click="$router.push({name:'table'})">View Table</li>
-				  <li class="list-group-item" @click="$router.push({name:'users'})" v-if="user.type == 1">Users</li>
+                  <li class="list-group-item" @click="$router.push({name:'users'})" v-if="user.type == 1">Users</li>
+				  <li class="list-group-item" @click="$router.push({name:'images'})" v-if="user.type == 1">Images</li>
 				<a href="/logout">  <li class="list-group-item">logout</li></a>
 				</ul>
     		</div>
