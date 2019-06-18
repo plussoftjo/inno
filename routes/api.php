@@ -9,7 +9,7 @@ Route::post('/active/search','activeController@search');
 Route::post('/load/store','loadController@store');
 Route::post('/load/update/{id}','loadController@update');
 Route::get('/load/destroy/{id}','loadController@destroy');
-Route::get('/load/index','loadController@index');
+Route::post('/load/index','loadController@index');
 Route::get('/load/show/{id}','loadController@show');
 
 

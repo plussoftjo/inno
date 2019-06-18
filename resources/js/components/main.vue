@@ -20,8 +20,8 @@
 								{{$route.name}}
 							</div>
 						</div>
-						<div class="card-body">
-						 <router-view></router-view>
+						<div class="card-body" v-if="show">
+						 <router-view :user="user"></router-view>
 						</div>
 					</div>
     		</div>
@@ -36,13 +36,15 @@
         	const vm = this;
         	axios.get('/users/getAuth').then(response => {
         		vm.user = response.data;
+                vm.show = true;
         	}).catch(err => {
         		console.log(err)
         	});
         },
         data() {
         	return {
-        		user:{}
+        		user:{},
+                show:false
         	}
         }
     }

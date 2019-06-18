@@ -21,7 +21,7 @@ class imagesController extends Controller
         $files = array_diff(scandir($path), array('.', '..'));
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $itemCollection = collect($files);
-        $perPage =30;
+        $perPage =300;
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
         $paginatedItems->setPath($request->url());

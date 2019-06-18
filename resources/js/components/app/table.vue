@@ -106,7 +106,7 @@
 			},
 			install() {
 				const vm = this;
-				axios.get('/api/load/index?page=' + vm.page).then(response => {
+				axios.post('/api/load/index?page=' + vm.page,{id:vm.user.id}).then(response => {
 					// Last Page Make 
 					vm.last_page = response.data.last_page;
 
@@ -132,7 +132,7 @@
 			prev() {
 				const vm = this;
 				vm.page = vm.page - 2;
-				axios.get('/api/load/index?page=' + vm.page).then(response => {
+				axios.post('/api/load/index?page=' + vm.page,{id:vm.user.id}).then(response => {
 					// Last Page Make 
 					vm.last_page = response.data.last_page;
 
@@ -160,7 +160,9 @@
 		created() {
 			const vm = this;
 			vm.install();
-		}
+			console.log(vm.user);
+		},
+		props:['user']
 	}
 </script>
 <style>

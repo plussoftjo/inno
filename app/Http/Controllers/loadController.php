@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\load;
 use App\User;
+use Auth;
 class loadController extends Controller
 {
     public function store(Request $req) 
@@ -27,9 +28,9 @@ class loadController extends Controller
 
     }
 
-    public function index() 
+    public function index(Request $req) 
     {
-        return response()->json(load::orderBy('id','decs')->paginate(10));
+        return response()->json(load::orderBy('id','decs')->where('user_id',$req->id)->paginate(10));
     }
 
     public function show($id)
